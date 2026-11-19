@@ -330,23 +330,23 @@ footer{background:var(--deep);color:#B9AFCB;margin-top:110px;padding-block:56px 
         <p>Tap the one that sounds most like you.</p>
       </div>
       <div class="goals" role="group" aria-label="Pick your goal">
-        <button class="goal" type="button" data-p="sg" aria-pressed="true">Drop body fat</button>
-        <button class="goal" type="button" data-p="sg" aria-pressed="false">Build muscle and tone up</button>
-        <button class="goal" type="button" data-p="sg" aria-pressed="false">Feel more confident</button>
-        <button class="goal" type="button" data-p="sg" aria-pressed="false">Improve my mindset</button>
+        <button class="goal" type="button" data-p="fat" aria-pressed="true">Drop body fat</button>
+        <button class="goal" type="button" data-p="recomp" aria-pressed="false">Build muscle and tone up</button>
+        <button class="goal" type="button" data-p="conf" aria-pressed="false">Feel more confident</button>
+        <button class="goal" type="button" data-p="mind" aria-pressed="false">Improve my mindset</button>
         <button class="goal" type="button" data-p="mb" aria-pressed="false">Get back to exercise without worrying about childcare</button>
       </div>
       <div class="match" id="match" aria-live="polite">
-        <div class="ph"><img id="m-img" src="img/ig3.jpg" alt="BootyBox members together after a small group session"></div>
+        <div class="ph"><img id="m-img" src="img/megan.jpg" alt="A member training hard during a session"></div>
         <div class="txt">
-          <div class="for" id="m-for">Your match</div>
+          <div class="for" id="m-for">Fat loss focus</div>
           <h3 id="m-title">Small Group Coaching</h3>
-          <p id="m-body">Strength, fitness and boxing (pads and bags) in groups of no more than 7 women, with a plan built around you. You don't need any boxing experience at all.</p>
+          <p id="m-body">Lose body fat without living on salad. Strength training, boxing and conditioning in groups of no more than 7, plus nutrition guidance that fits real life.</p>
           <ul id="m-list">
-            <li>Your own training plan and nutrition guidance</li>
-            <li>Weekly check ins with your coach</li>
-            <li>Groups of no more than 7 women</li>
-            <li>Up to 14 extra classes a week, from boxing to Pilates</li>
+            <li>Nutrition guidance you can stick to, with no foods banned</li>
+            <li>Strength and boxing sessions that keep your heart rate up</li>
+            <li>Weekly check ins that track more than the scale</li>
+            <li>Up to 14 extra classes a week, from boxing to Hyrox style</li>
           </ul>
           <div><a class="btn btn-p" href="#book">Book a meeting with a coach</a></div>
         </div>
@@ -482,8 +482,11 @@ footer{background:var(--deep);color:#B9AFCB;margin-top:110px;padding-block:56px 
 <script>
 (function(){
   var P={
-    sg:{img:'img/ig3.jpg',alt:'BootyBox members together after a small group session',title:'Small Group Coaching',body:"Strength, fitness and boxing (pads and bags) in groups of no more than 7 women, with a plan built around you. You don't need any boxing experience at all.",list:['Your own training plan and nutrition guidance','Weekly check ins with your coach','Groups of no more than 7 women','Up to 14 extra classes a week, from boxing to Pilates']},
-    mb:{img:'img/ig1.jpg',alt:'Mums training with their babies beside them',title:'Mum and Baby',body:"Relaxed, supportive sessions where your baby comes too. No judgement, no childcare to sort, just you getting stronger again.",list:['Tuesdays or Wednesdays at 10am','Babies are always welcome','Your 6 week postnatal check comes first']}
+    fat:{focus:'Fat loss focus',img:'img/megan.jpg',alt:'A member training hard during a session',title:'Small Group Coaching',body:"Lose body fat without living on salad. Strength training, boxing and conditioning in groups of no more than 7, plus nutrition guidance that fits real life.",list:['Nutrition guidance you can stick to, with no foods banned','Strength and boxing sessions that keep your heart rate up','Weekly check ins that track more than the scale','Up to 14 extra classes a week, from boxing to Hyrox style']},
+    recomp:{focus:'Body recomp focus',img:'img/sg3.jpg',alt:'A member holding a weight plate in front of the BootyBox wall',title:'Small Group Coaching',body:"Build muscle and lose fat at the same time, so you look and feel more toned. Your plan gets progressively heavier as you get stronger.",list:['A progressive strength plan built for your goal','Nutrition guidance with enough protein to build muscle','Video demos in the app so your technique is spot on','Weekly check ins to adjust your training and food']},
+    conf:{focus:'Confidence focus',img:'img/sg2.jpg',alt:'Two members celebrating with a weight plate',title:'Small Group Coaching',body:"Start exactly where you are. In a group of no more than 7, your coach knows your name, and every win gets celebrated, big or small.",list:['No boxing experience needed, we teach you from your first jab','Coaches who check in on you through the week','Milestones celebrated with the whole squad','A room full of women who have been where you are']},
+    mind:{focus:'Mindset and habits focus',img:'img/ig3.jpg',alt:'BootyBox members together after a session',title:'Small Group Coaching',body:"Boxing is the best way to switch your head off for an hour. We help you build a routine that sticks and the habits that keep you going on busy weeks.",list:['A routine that fits around your work and family','Habit tracking in the BootyBox app','Weekly check ins on training, food and mindset','A squad that keeps you accountable']},
+    mb:{focus:'Mum and Baby',img:'img/ig1.jpg',alt:'Mums training with their babies beside them',title:'Mum and Baby',body:"Relaxed, supportive sessions where your baby comes too. No judgement, no childcare to sort, just you getting stronger again.",list:['Tuesdays or Wednesdays at 10am','Babies are always welcome','Your 6 week postnatal check comes first']}
   };
   var match=document.getElementById('match');
   document.querySelectorAll('.goal').forEach(function(b){
@@ -495,7 +498,7 @@ footer{background:var(--deep);color:#B9AFCB;margin-top:110px;padding-block:56px 
       document.getElementById('m-title').textContent=d.title;
       document.getElementById('m-body').textContent=d.body;
       document.getElementById('m-list').innerHTML=d.list.map(function(t){return '<li>'+t+'</li>'}).join('');
-      document.getElementById('m-for').textContent='Your match for "'+b.textContent+'"';
+      document.getElementById('m-for').textContent=d.focus;
       match.classList.remove('swap');void match.offsetWidth;match.classList.add('swap');
     });
   });
