@@ -212,6 +212,7 @@ section{padding-block:110px}
 .field input,.field select{font:16px var(--sans);padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--chalk);color:var(--ink);width:100%}
 .field input:focus,.field select:focus{outline:none;border-color:var(--purple);background:#fff}
 .form .btn{width:100%;margin-top:22px}
+.form .embed{margin-top:18px;min-height:420px}
 .done{display:none;text-align:center;padding:30px 0}
 .done h3{font-size:46px}
 .form.sent form{display:none}.form.sent .done{display:block}
@@ -436,22 +437,14 @@ footer{background:var(--deep);color:#B9AFCB;margin-top:110px;padding-block:56px 
         <p class="intro">Book a no pressure chat with one of our coaches. We'll talk about your goals, show you around and find the right fit. No obligation, just a friendly hello.</p>
         <div class="card" aria-hidden="true">
           <div class="top"><span class="mark"><span>BOOTY</span><b>BOX</b></span><small>Club member</small></div>
-          <div class="name" id="card-name">Your name here</div>
+          <div class="name">Your name here</div>
           <div class="meta"><span>East Kilbride</span><span>Since 2026</span></div>
         </div>
       </div>
       <div class="form" id="form">
-        <form id="f" novalidate>
-          <h3>Book a meeting with a coach</h3>
-          <p class="small">Takes 30 seconds. A coach will message you to pick a time.</p>
-          <div class="field"><label for="fn">First name</label><input id="fn" name="fn" autocomplete="given-name" required placeholder="Sarah"></div>
-          <div class="field"><label for="ph">Phone</label><input id="ph" name="ph" type="tel" autocomplete="tel" required placeholder="07..."></div>
-          <div class="field"><label for="em">Email</label><input id="em" name="em" type="email" autocomplete="email" required placeholder="you@email.com"></div>
-          <div class="field"><label for="gl">I'm most interested in</label>
-            <select id="gl" name="gl"><option>Small Group Coaching</option><option>Mum and Baby</option><option>Not sure yet</option></select></div>
-          <button class="btn btn-p" type="submit">Book my meeting</button>
-        </form>
-        <div class="done"><h3>You're in, <span class="acc" id="done-name">lovely</span>.</h3><p class="small" style="margin:10px auto 0">A coach will be in touch soon to pick a time. (Preview only: this form isn't connected yet.)</p></div>
+        <h3>Book a meeting with a coach</h3>
+        <p class="small">Pick a time that suits you. No obligation, just a friendly chat.</p>
+        <div class="embed" data-gymgrow-form="booty-box-discovery-meeting"></div>
       </div>
     </div>
   </div>
@@ -518,20 +511,12 @@ footer{background:var(--deep);color:#B9AFCB;margin-top:110px;padding-block:56px 
     a.addEventListener('click',function(){var w=reel.querySelector('figure').offsetWidth+18;reel.scrollBy({left:w*+a.dataset.dir,behavior:'smooth'})});
   });
   reel.addEventListener('scroll',function(){var w=reel.querySelector('figure').offsetWidth+18,n=reel.querySelectorAll('figure').length;count.textContent=Math.min(n,Math.round(reel.scrollLeft/w)+1)+' of '+n},{passive:true});
-  var fn=document.getElementById('fn'),cn=document.getElementById('card-name');
-  fn.addEventListener('input',function(){cn.textContent=fn.value.trim()||'Your name here'});
-  document.getElementById('f').addEventListener('submit',function(e){
-    e.preventDefault();
-    var ok=true;['fn','ph','em'].forEach(function(id){var el=document.getElementById(id);if(!el.value.trim()){el.style.borderColor='#D9435B';ok=false}else{el.style.borderColor=''}});
-    if(!ok)return;
-    document.getElementById('done-name').textContent=fn.value.trim();
-    document.getElementById('form').classList.add('sent');
-  });
   var g=document.getElementById('giant');
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
     addEventListener('scroll',function(){var y=scrollY;if(y<900)g.style.transform='translateX('+(-y*0.25)+'px)'},{passive:true});
   }
 })();
 </script>
+<script src="https://revenueos.gymgrow.ai/embed.js" async></script>
 </body>
 </html>
