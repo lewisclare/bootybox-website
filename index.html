@@ -213,7 +213,8 @@ section{padding-block:110px}
 .field input:focus,.field select:focus{outline:none;border-color:var(--purple);background:#fff}
 .form .btn{width:100%;margin-top:22px}
 .form .embed{min-height:420px;border-radius:24px;overflow:hidden}
-#form{background:#18181B;color:#fff;padding:14px 0 8px;align-self:start}
+#form{background:#18181B;color:#fff;padding:24px 0 16px;align-self:stretch;min-height:640px;transform:rotate(2deg);box-shadow:0 30px 60px -24px rgba(20,8,50,.7)}
+@media (max-width:900px){#form{transform:rotate(1deg);min-height:520px}}
 #form p.small{color:#A1A1AA}
 .done{display:none;text-align:center;padding:30px 0}
 .done h3{font-size:46px}
